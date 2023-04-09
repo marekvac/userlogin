@@ -31,7 +31,7 @@ abstract class BaseRestriction<E extends Event> implements Listener {
 
         Player player = getEventPlayer(event);
 
-        if (player == null || UserLoginAPI.isLoggedIn(player)) return false;
+        if (player == null || UserLoginAPI.isLoggedIn(player) || plugin.getConfig().getStringList("ignoredPlayers").contains(player.getName())) return false;
 
         if (!event.isAsynchronous() || restrictionEvent.isAsynchronous()) {
             plugin.getServer().getPluginManager().callEvent(restrictionEvent);

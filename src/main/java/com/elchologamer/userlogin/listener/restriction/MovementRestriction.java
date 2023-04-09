@@ -24,7 +24,7 @@ public class MovementRestriction extends BaseRestriction<PlayerMoveEvent> {
 
     @Override
     public boolean shouldRestrict(PlayerMoveEvent e) {
-        if (UserLoginAPI.isLoggedIn(e.getPlayer())) return false;
+        if (UserLoginAPI.isLoggedIn(e.getPlayer()) || getPlugin().getConfig().getStringList("ignoredPlayers").contains(e.getPlayer().getName())) return false;
 
         ConfigurationSection section = getPlugin().getConfig().getConfigurationSection("restrictions");
         assert section != null;
