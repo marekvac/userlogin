@@ -14,7 +14,6 @@ import com.elchologamer.userlogin.listener.PluginMsgListener;
 import com.elchologamer.userlogin.listener.restriction.*;
 import com.elchologamer.userlogin.manager.LangManager;
 import com.elchologamer.userlogin.manager.LocationsManager;
-import com.elchologamer.userlogin.util.FastLoginHook;
 import com.elchologamer.userlogin.util.LogFilter;
 import com.elchologamer.userlogin.util.Metrics;
 import com.elchologamer.userlogin.util.Metrics.SimplePie;
@@ -49,10 +48,10 @@ public final class UserLogin extends JavaPlugin {
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
         // Register FastLogin hook
-        if (getServer().getPluginManager().isPluginEnabled("FastLogin")) {
-            new FastLoginHook().register();
-            Utils.log("FastLogin hook registered");
-        }
+//        if (getServer().getPluginManager().isPluginEnabled("FastLogin")) {
+//            new FastLoginHook().register();
+//            Utils.log("FastLogin hook registered");
+//        }
 
         try {
             LogFilter.register();
